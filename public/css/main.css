@@ -1,0 +1,16 @@
+.custom-login{
+    height: 500px;
+    padding-top: 150px;
+}
+.trending-wrapper{
+    margin-bottom: 160px;
+    width: 100%;
+}
+.trending-image{
+    height: 100px;
+}
+.trending-items{
+    text-align: center;
+    float: left;
+    width: 20%;
+}
