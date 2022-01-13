@@ -24,6 +24,8 @@ Route::post('/login', [UserController::class, 'login']);
 Route::get('/home', [ProductController::class, 'index']);
 Route::get('detail/{id}', [ProductController::class, 'detail']);
 
+
+// logot and pull the session 
 Route::get('/logout', function() {
     if(session()->has('user')) {
         session()->pull('user');
