@@ -14,6 +14,10 @@
             <h3>Price: {{$detail['price']}}</h3>
             <h4>Description: {{$detail['description']}}</h4>
             <h4>Category: {{$detail['category']}}</h4>
+            <br><br>
+            <button class="btn btn-warning">Add to Cart</button>
+            <br><br>
+            <button class="btn btn-success">Buy Now</button>
             
         </div>
     </div>
