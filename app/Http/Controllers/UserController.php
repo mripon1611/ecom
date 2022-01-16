@@ -35,4 +35,22 @@ class UserController extends Controller
             return redirect('/');
         }
     }
+
+    public function register( Request $req) {
+        $req->validate([
+            'name'=>'required',
+            'email'=>'required|email',
+            'password'=>'required|max:18|min:6',
+        ]);
+        $datas = $req->all();
+        $user = $this->data->signup($req->all());
+        if(empty($user)) {
+            return redirect('/register');
+            
+        }
+        else{
+            $req->session()->put('user', ['email'=>$req->email,'password'=>$req->password]);
+            return redirect('/');
+        }
+    }
 }

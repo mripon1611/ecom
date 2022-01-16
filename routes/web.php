@@ -15,11 +15,23 @@ use App\Http\Controllers\ProductController;
 |
 */
 
+
+/**
+ * User controlling
+ */
+
+ //login page view
 Route::get('/login', function () {
     return view('login');
 });
-
+//login submission and validate
 Route::post('/login', [UserController::class, 'login']);
+//registration page view
+Route::get('/register', function () {
+    return view('register');
+});
+//registration submit and validation
+Route::post('/register', [UserController::class, 'register']);
 
 Route::get('/', [ProductController::class, 'index']);
 Route::get('detail/{id}', [ProductController::class, 'detail']);

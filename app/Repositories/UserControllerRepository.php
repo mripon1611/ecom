@@ -20,5 +20,11 @@
 
             return $res;
         }
+
+        public function signup( array $data ) {
+            $data['password'] = bcrypt($data['password']);
+            $user = User::create($data);
+            return $user;
+        }
     }
     
