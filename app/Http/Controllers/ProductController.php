@@ -15,12 +15,6 @@ class ProductController extends Controller
     //
 
     public function index() {
-        // if(Session()->has('user')){
-        //     $products = Product::all();
-        //     return view('product', ['products'=>$products]);
-        // } else {
-        //     return redirect('login')->with('fail', 'You must Login first!');
-        // }
         $products = Product::all();
         return view('product', ['products'=>$products]);
         
