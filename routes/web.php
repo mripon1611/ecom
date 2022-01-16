@@ -49,3 +49,6 @@ Route::post('/add_to_cart', [ProductController::class, 'addToCart']);
 
 // Show cart item page
 Route::get('/show-cart',[ProductController::class, 'showCart']);
+
+// Detele items from the cart
+Route::get('/delete-from-cart/{id}', [ProductController::class, 'deleteFromCart']);

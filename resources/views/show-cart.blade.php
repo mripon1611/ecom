@@ -14,7 +14,8 @@
         </div>
     </div>
     <button class="btn btn-success">Buy Now</button>
-    <button class="btn btn-danger">Delete</button>
+    <!-- <button class="btn btn-danger">Delete</button> -->
+    <a href="/delete-from-cart/{{$product->id}}" class="btn btn-danger">Delete</a>
         
     @endforeach
 </div>

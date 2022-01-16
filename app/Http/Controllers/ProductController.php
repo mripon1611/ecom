@@ -54,4 +54,7 @@ class ProductController extends Controller
 
         return view('show-cart', ['products'=>$products]);
     }
+    public function deleteFromCart($id) {
+        return $id;
+    }
 }
