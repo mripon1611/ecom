@@ -32,7 +32,7 @@ class UserController extends Controller
         }
         else {
             $req->session()->put('user', ['email'=>$req->email,'password'=>$req->password]);
-            return redirect('/home');
+            return redirect('/');
         }
     }
 }

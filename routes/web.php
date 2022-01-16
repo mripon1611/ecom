@@ -21,7 +21,7 @@ Route::get('/login', function () {
 
 Route::post('/login', [UserController::class, 'login']);
 
-Route::get('/home', [ProductController::class, 'index']);
+Route::get('/', [ProductController::class, 'index']);
 Route::get('detail/{id}', [ProductController::class, 'detail']);
 
 
@@ -30,5 +30,7 @@ Route::get('/logout', function() {
     if(session()->has('user')) {
         session()->pull('user');
     }
-    return redirect('/login');
+    return redirect('/');
 });
+
+Route::post('/add_to_cart', [ProductController::class, 'addToCart']);
