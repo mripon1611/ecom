@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use App\Repositories\UserControllerRepository;
 
 use Validator;
@@ -31,7 +32,8 @@ class UserController extends Controller
             return back()->with('fail', 'Incorrect Password!!');
         }
         else {
-            $req->session()->put('user', ['email'=>$req->email,'password'=>$req->password]);
+            $user = User::where('email',$req->email)->first();
+            $req->session()->put('user', ['email'=>$req->email,'password'=>$req->password,'id'=>$user->id]);
             return redirect('/');
         }
     }
@@ -49,7 +51,7 @@ class UserController extends Controller
             
         }
         else{
-            $req->session()->put('user', ['email'=>$req->email,'password'=>$req->password]);
+            $req->session()->put('user', ['email'=>$req->email,'password'=>$req->password,'id'=>$user->id]);
             return redirect('/');
         }
     }

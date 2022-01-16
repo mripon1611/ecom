@@ -46,3 +46,6 @@ Route::get('/logout', function() {
 });
 
 Route::post('/add_to_cart', [ProductController::class, 'addToCart']);
+
+// Show cart item page
+Route::get('/show-cart',[ProductController::class, 'showCart']);

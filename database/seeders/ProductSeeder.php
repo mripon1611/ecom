@@ -17,11 +17,11 @@ class ProductSeeder extends Seeder
     {
         //
         DB::table('products')->insert([
-            'name'=> 'Sony TV',
-            'price'=> '350',
-            'category'=> 'TV',
-            'description'=> 'Sony 55" X75H 4K Ultra HD Android TV Brand New',
-            'gallery'=> 'https://www.clickbd.com/global/classified/item_img/2723839_1_original.jpg',
+            'name'=> 'Samsung Galaxy S20',
+            'price'=> '280',
+            'category'=> 'Mobile',
+            'description'=> 'Samsung Galaxy S20 is a smart phone with 6GB RAM',
+            'gallery'=> 'https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s20-1.jpg',
         ]);
     }
 }

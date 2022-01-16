@@ -7,6 +7,8 @@ use App\Models\Product;
 use App\Models\User;
 use App\Models\Cart;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+use Session;
 
 class ProductController extends Controller
 {
@@ -30,14 +32,32 @@ class ProductController extends Controller
     }
 
     public function addToCart(Request $req) {
-        if($req->Session()->has('user')){
+        if(Session()->has('user')){
             $cart = new Cart;
             $cart->user_id = Session()->get('user')['id'];
             $cart->product_id = $req->product_id;
-            //$cart->save();
+            $cart->save();
+            return redirect('/');
+            // return $id;
         } else {
             return redirect('login')->with('fail', 'You must Login first!');
         }
         
+    }
+
+    static function cartItem() {
+        $userId = Session::get('user')['id'];
+        return Cart::where('user_id', $userId)->count();
+    }
+
+    public function showCart() {
+        $userId = Session::get('user')['id'];
+        $products = DB::table('cart')
+        ->join('products','cart.product_id','=','products.id')
+        ->where('cart.user_id', $userId)
+        ->select('products.*')
+        ->get();
+
+        return view('show-cart', ['products'=>$products]);
     }
 }
