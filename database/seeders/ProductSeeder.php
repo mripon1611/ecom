@@ -17,11 +17,11 @@ class ProductSeeder extends Seeder
     {
         //
         DB::table('products')->insert([
-            'name'=> 'Samsung Galaxy S20',
-            'price'=> '280',
-            'category'=> 'Mobile',
-            'description'=> 'Samsung Galaxy S20 is a smart phone with 6GB RAM',
-            'gallery'=> 'https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s20-1.jpg',
+            'name'=> 'LG GL-B281BPZY',
+            'price'=> '305',
+            'category'=> 'Refrigerator',
+            'description'=> 'LG double-door-refrigerator-500x500',
+            'gallery'=> 'https://5.imimg.com/data5/NJ/IH/BQ/SELLER-102166082/double-door-refrigerator-500x500.jpg',
         ]);
     }
 }

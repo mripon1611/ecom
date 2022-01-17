@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,3 +53,12 @@ Route::get('/show-cart',[ProductController::class, 'showCart']);
 
 // Detele items from the cart
 Route::get('/delete-from-cart/{id}', [ProductController::class, 'deleteFromCart']);
+
+// Order now from show-cart list
+Route::get('/order-now', [OrderController::class, 'orderNow']);
+
+// View Orders
+Route::get('/order-view', [OrderController::class, 'myOrder']);
+
+// place order
+Route::post('/confirm-order', [OrderController::class, 'confirmOrder']);
