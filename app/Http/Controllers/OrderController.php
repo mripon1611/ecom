@@ -43,7 +43,7 @@ class OrderController extends Controller
             $order->save();
             Cart::where('user_id', $userId)->delete();
         }
-        return redirect('/');
+        return redirect('order-view');
     }
 
     public function myOrder() {
