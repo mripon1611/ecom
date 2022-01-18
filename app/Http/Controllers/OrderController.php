@@ -47,14 +47,20 @@ class OrderController extends Controller
     }
 
     public function myOrder() {
-        $userId = Session::get('user')['id'];
-        $products = DB::table('orders')
-        ->join('products','orders.product_id','=','products.id')
-        ->where('orders.user_id', $userId)
-        ->select('products.*', 'orders.id as orders_id')
-        ->get();
+        if(Session()->has('user')) {
+            $userId = Session::get('user')['id'];
+            $products = DB::table('orders')
+            ->join('products','orders.product_id','=','products.id')
+            ->where('orders.user_id', $userId)
+            ->select('products.*', 'orders.id as orders_id')
+            ->get();
 
-        return view('order-view', ['products'=>$products]);
+            return view('order-view', ['products'=>$products]);
+        }
+        else {
+            return redirect('login');
+        }
+        
     }
 
     static function orderItem() {
