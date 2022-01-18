@@ -46,14 +46,20 @@ class ProductController extends Controller
     }
 
     public function showCart() {
-        $userId = Session::get('user')['id'];
-        $products = DB::table('cart')
-        ->join('products','cart.product_id','=','products.id')
-        ->where('cart.user_id', $userId)
-        ->select('products.*', 'cart.id as cart_id')
-        ->get();
+        if(Session()->has('user')) {
+            $userId = Session::get('user')['id'];
+            $products = DB::table('cart')
+            ->join('products','cart.product_id','=','products.id')
+            ->where('cart.user_id', $userId)
+            ->select('products.*', 'cart.id as cart_id')
+            ->get();
 
-        return view('show-cart', ['products'=>$products]);
+            return view('show-cart', ['products'=>$products]);
+        }
+        else {
+            return redirect('login');
+        }
+        
     }
     public function deleteFromCart($id) {
         $cart = Cart::find($id);
