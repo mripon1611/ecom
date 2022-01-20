@@ -17,3 +17,17 @@
 .details-img{
     height: 300px;
 }
+.footer {
+    margin-top: 230px;
+    color: white;
+}
+.footer div{
+    padding: 20px 0px 20px 0px;
+}
+.quick-links a {
+    display: block;
+    padding: 16px;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
